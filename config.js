@@ -1,1 +1,1 @@
-export const WS_URL = "wss://tu-servidor-backend.onrender.com";
+export const WS_URL = "wss://chat-backend-d747a4.kyracloud.com/";
