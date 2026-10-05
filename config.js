@@ -1,0 +1,1 @@
+export const WS_URL = "wss://tu-servidor-backend.onrender.com";

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f1f3ec" />
+    <meta name="description" content="Chat en tiempo real conectado por WebSocket." />
+    <title>El hilo | Chat en tiempo real</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="El hilo, inicio">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>el hilo</span>
+        </a>
+        <div class="connection" id="connection" data-state="disconnected" role="status" aria-live="polite">
+          <span class="connection-dot" aria-hidden="true"></span>
+          <span id="connection-label">Desconectado</span>
+        </div>
+      </header>
+
+      <section class="chat-layout" aria-label="Chat en tiempo real">
+        <aside class="identity-panel">
+          <div class="eyebrow"><span class="eyebrow-rule"></span> CHAT EN TIEMPO REAL</div>
+          <h1>Una buena charla <br />empieza aquí.</h1>
+          <p class="intro">Entra con tu nombre y únete a la conversación.</p>
+
+          <label class="field-label" for="username">Tu nombre</label>
+          <input id="username" class="name-input" type="text" maxlength="40" autocomplete="nickname" placeholder="¿Cómo te llamas?" />
+
+          <div class="identity-footnote">
+            <span class="footnote-icon" aria-hidden="true">↗</span>
+            <p>Los mensajes aparecen aquí para todos los conectados.</p>
+          </div>
+          <div class="panel-decoration" aria-hidden="true"></div>
+        </aside>
+
+        <section class="conversation" aria-label="Conversación">
+          <div class="conversation-header">
+            <div>
+              <p class="conversation-kicker">SALA ABIERTA</p>
+              <h2>Conversación</h2>
+            </div>
+            <span class="live-label"><span></span> EN VIVO</span>
+          </div>
+
+          <ol class="message-list" id="messages" aria-label="Mensajes" aria-live="polite" aria-relevant="additions">
+            <li class="empty-state" id="empty-state">
+              <span class="empty-mark" aria-hidden="true">···</span>
+              <p>Aún no hay mensajes</p>
+              <span>Inicia la conversación cuando quieras.</span>
+            </li>
+          </ol>
+
+          <form class="composer" id="message-form">
+            <label class="visually-hidden" for="message-input">Escribe un mensaje</label>
+            <input id="message-input" type="text" maxlength="2000" placeholder="Escribe un mensaje…" autocomplete="off" disabled />
+            <button id="send-button" type="submit" disabled>
+              <span>Enviar</span><span class="send-arrow" aria-hidden="true">↗</span>
+            </button>
+          </form>
+          <p class="composer-hint" id="composer-hint">Conectando con el servidor…</p>
+        </section>
+      </section>
+      <footer class="page-footer"><span>EL HILO</span><span>Un espacio para conversar.</span></footer>
+    </main>
+  </body>
+</html>
